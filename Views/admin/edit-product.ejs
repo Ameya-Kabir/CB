@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Product</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="add-container mt-5">
+      <h1>Edit Product</h1>
+      <form
+        action="/admin/products/edit/<%= product.id %>"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group">
+          <label for="name">Product Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            value="<%= product.name %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="flavor">Flavor</label>
+          <input
+            type="text"
+            class="form-control"
+            id="flavor"
+            name="flavor"
+            value="<%= product.flavor %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            name="price"
+            value="<%= product.price %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="image"
+            >Product Image (leave empty to keep current image)</label
+          >
+          <input
+            type="file"
+            class="form-control-file"
+            id="image"
+            name="image"
+          />
+        </div>
+        <button type="submit" class="btn btn-success">Update Product</button>
+        <a href="/admin/products/manage" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+  </body>
+</html>

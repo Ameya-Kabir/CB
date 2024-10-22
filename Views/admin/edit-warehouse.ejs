@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Warehouse</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="add-container mt-5">
+      <h1 class="text-center">Edit Warehouse</h1>
+      <form
+        action="/admin/warehouses/edit/<%= warehouse.id %>"
+        method="POST"
+        class="mt-4"
+      >
+        <div class="form-group mb-3">
+          <label for="name" class="form-label">Warehouse Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            value="<%= warehouse.name %>"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            name="location"
+            value="<%= warehouse.location %>"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="/warehouses" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

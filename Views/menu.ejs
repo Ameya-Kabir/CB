@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crown Bakery Menu</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+DE+Grund:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/Images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/Images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/Images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/Images/site.webmanifest" />
+  </head>
+  <body>
+    <div class="unselectable">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">Crown Bakers</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <% if (isLoggedIn) { %>
+        <div class="navbar-nav">
+          <% if (user.role === 'admin') { %>
+          <a href="/admin/Dashboard" class="btn btn-lg lgin-btn">Admin</a>
+          <% } %>
+          <a href="/auth/logout" class="btn btn-lg lgin-btn">Log Out</a>
+        </div>
+        <% } else { %>
+        <div class="navbar-nav">
+          <a href="/login.html" class="btn btn-lg lgin-btn">Log in</a>
+        </div>
+        <% } %>
+      </nav>
+
+      <div class="container mt-4">
+        <h1 class="text-center mb-4">Our Products</h1>
+        <div class="row">
+          <% products.forEach(product => { %>
+          <div class="col-md-4 mb-4">
+            <div class="card mb-4">
+              <% if (product.image) { %>
+              <img
+                src="<%= product.image %>"
+                class="card-img-top"
+                alt="<%= product.name %>"
+              />
+              <% } else { %>
+              <img
+                src="https://via.placeholder.com/300x200"
+                class="card-img-top"
+                alt="Default Image"
+              />
+              <% } %>
+              <div class="card-body">
+                <h5 class="card-title"><%= product.name %></h5>
+                <p class="card-text">Flavor: <%= product.flavor %></p>
+                <p class="card-text">
+                  <strong>Price: Rs. <%= product.price.toFixed(2) %></strong>
+                </p>
+                <% if (product.stock > 0) { %>
+                <p class="text-success">In Stock</p>
+                <a href="#" class="btn btn-primary">Order Now</a>
+                <% } else { %>
+                <p class="text-danger">Out of Stock</p>
+                <button class="btn btn-secondary" disabled>Unavailable</button>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+  </body>
+</html>
