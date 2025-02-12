@@ -7,8 +7,7 @@ const db = sql.createConnection({
   database: "freedb_crown_bakers",
   port: 3306,
   authPlugins: {
-    mysql_clear_password: () => () =>
-      Buffer.from(process.env.DATABASE_PASSWORD),
+    mysql_clear_password: () => () => Buffer.from("cu*%P%4dDHXh8ct"),
   },
   waitForConnections: true,
   connectionLimit: 10,
