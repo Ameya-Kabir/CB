@@ -22,7 +22,7 @@ db.connect((err) => {
   }
 });
 //define routes
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/", require("./Routes/pages"));
 app.use("/auth", require("./Controllers/auth"));
 app.use("/", require("./Routes/admin"));
