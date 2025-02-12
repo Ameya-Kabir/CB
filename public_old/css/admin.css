@@ -1,0 +1,112 @@
+body {
+  font-family: "Playwrite DE Grund", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  background-color: #f2e7dd;
+}
+
+.navbar {
+  background-color: #a75f37;
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-style: solid;
+  border-left: #292421;
+  border-right: #292421;
+}
+
+.navbar-brand {
+  padding-right: 2%;
+  padding-left: 2%;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #f2e7dd;
+  border-right-style: solid;
+  border-left-style: solid;
+}
+
+.navbar-brand:hover {
+  color: #d9b99f;
+}
+
+.nav-item {
+  padding: 1%;
+}
+
+.navbar-nav .nav-link {
+  color: #f2e7dd;
+  font-size: 1.2rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #d9b99f;
+}
+
+.navbar-text {
+  color: #f2e7dd;
+  font-size: 1.2rem;
+  padding: 1%;
+}
+
+.stat-card {
+  padding: 20px;
+  border: #292421 solid 1px;
+  border-radius: 10px;
+  margin: 20px 0;
+  color: white;
+}
+.card-title {
+  font-size: 1.2rem;
+}
+.chart-container {
+  margin-top: 40px;
+}
+
+.add-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 350px;
+  height: auto;
+}
+
+.add-container h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #d2691e;
+  position: relative;
+}
+
+.add-container h1::after,
+.edit-container h1::after {
+  content: "";
+  width: 30px;
+  height: 4px;
+  border-radius: 3px;
+  background: #d2691e;
+  position: absolute;
+  left: 50%;
+  bottom: -15%;
+  transform: translateX(-50%);
+}
+
+.add-container input[type="text"],
+.add-container input[type="number"],
+.add-container select {
+  width: 98%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-container label {
+  display: none;
+}
